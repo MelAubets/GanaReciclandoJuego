@@ -7,6 +7,7 @@ public class UserController : MonoBehaviour
     private TMP_Text welcome;
     private bool exist = false;
     private int n;
+
     public void SetUsername(string username)
     {
         int numUsers = PlayerPrefs.GetInt("NumUsers", 0);

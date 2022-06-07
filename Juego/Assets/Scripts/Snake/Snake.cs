@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Snake : MonoBehaviour
 {
@@ -8,16 +9,24 @@ public class Snake : MonoBehaviour
     private List<Transform> _segments;
     public Transform segmentPrefab;
     public int score;
+    public TMP_Text thisScore;
+
+    private string username;
+    private int userScore;
 
     private void Start()
     {
+        username = PlayerPrefs.GetString("Username");
+        userScore = PlayerPrefs.GetInt(username + ".Score", 0);
         _segments = new List<Transform>();
         _segments.Add(transform);
         score = 0;
+        thisScore.text = score.ToString();
     }
 
     private void Update()
     {
+        thisScore.text = score.ToString();
         if(_segments.Count == 1)
         {
             if (Input.GetKeyDown(KeyCode.W))
@@ -71,6 +80,8 @@ public class Snake : MonoBehaviour
         {
             Grow();
             score++;
+            if (score > userScore)
+                PlayerPrefs.SetInt(username + ".Score", score);
         }
         else if(collision.tag == "Obstacle")
         {
