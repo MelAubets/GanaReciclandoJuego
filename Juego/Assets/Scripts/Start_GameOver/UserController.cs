@@ -30,6 +30,6 @@ public class UserController : MonoBehaviour
 
         PlayerPrefs.SetString("Username", username);
 
-        welcome.text = "Bienvenido " + username + ", escoge el juego!";
+        welcome.text = "Bienvenid@ " + username + ", escoge el juego!";
     }
 }

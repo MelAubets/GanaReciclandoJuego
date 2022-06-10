@@ -21,12 +21,12 @@ public class Snake : MonoBehaviour
         _segments = new List<Transform>();
         _segments.Add(transform);
         score = 0;
-        thisScore.text = score.ToString();
+        thisScore.text = "Puntos: " + score.ToString();
     }
 
     private void Update()
     {
-        thisScore.text = score.ToString();
+        thisScore.text = "Puntos: " + score.ToString();
         if(_segments.Count == 1)
         {
             if (Input.GetKeyDown(KeyCode.W))
@@ -88,8 +88,5 @@ public class Snake : MonoBehaviour
             GameOver();
         }
     }
-  
-    private void EnableAll()
-    {
-    }
+
 }

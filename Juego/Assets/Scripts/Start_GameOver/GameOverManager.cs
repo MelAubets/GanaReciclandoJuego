@@ -41,7 +41,10 @@ public class GameOverManager : MonoBehaviour
                     }
                 }
 
-                ranking.text += maxUser + ":\t" + max.ToString() + "\n";
+                if(maxUser.Length <= 5)
+                    ranking.text += maxUser + ": \t \t" + max.ToString() + "\n";
+                else
+                    ranking.text += maxUser + ": \t" + max.ToString() + "\n";
 
                 scores.RemoveAt(n);
                 usernames.RemoveAt(n);

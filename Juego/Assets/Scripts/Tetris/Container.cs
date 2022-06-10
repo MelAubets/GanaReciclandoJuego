@@ -36,7 +36,7 @@ public class Container : MonoBehaviour
             score += 1;
             scoreText.text = "Puntos\n" + score;
 
-            if(score%10 == 0)
+            if(score%2 == 0)
             {
                 board.level += 1;
             }
